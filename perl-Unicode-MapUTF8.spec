@@ -18,6 +18,7 @@ Buildrequires:	perl(Unicode::Map)
 Buildrequires:	perl(Unicode::Map8)
 Buildrequires:	perl(Jcode)
 Buildarch:	noarch
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 Provides an adapter layer between core routines for converting to and from UTF8
