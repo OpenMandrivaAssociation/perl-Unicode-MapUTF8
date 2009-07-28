@@ -1,16 +1,16 @@
-%define module	Unicode-MapUTF8
-%define name	perl-%{module}
-%define version 1.11
-%define release %mkrel 5
+%define upstream_name	 Unicode-MapUTF8
+%define upstream_version 1.11
 
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	%mkrel 1
+
 Summary:	Conversions to and from arbitrary character sets and UTF8
-License:	GPL or Artistic
+License:	GPL+ or Artistic
 Group:		Development/Perl
-Source:		http://search.cpan.org/CPAN/authors/id/S/SN/SNOWHARE/%{module}-%{version}.tar.bz2
-Url:		http://search.cpan.org/dist/%{module}/
+Url:		http://search.cpan.org/dist/%{upstream_name}/
+Source0:	http://search.cpan.org/CPAN/authors/id/S/SN/SNOWHARE/%{upstream_name}-%{upstream_version}.tar.bz2
+
 %if %{mdkversion} < 1010
 Buildrequires:	perl-devel
 %endif
@@ -18,7 +18,7 @@ Buildrequires:	perl(Unicode::Map)
 Buildrequires:	perl(Unicode::Map8)
 Buildrequires:	perl(Jcode)
 Buildarch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 Provides an adapter layer between core routines for converting to and from UTF8
@@ -40,7 +40,7 @@ By design, it can be easily extended to encompass any new charset encoding
 conversion modules that arrive on the scene.
 
 %prep
-%setup -q -n %{module}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -61,5 +61,3 @@ rm -rf %{buildroot}
 %doc README
 %{perl_vendorlib}/Unicode
 %{_mandir}/*/*
-
-
