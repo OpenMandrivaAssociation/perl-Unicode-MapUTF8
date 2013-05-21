@@ -3,7 +3,7 @@
 
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version %{upstream_version}
-Release:	5
+Release:	6
 
 Summary:	Conversions to and from arbitrary character sets and UTF8
 License:	GPL+ or Artistic
