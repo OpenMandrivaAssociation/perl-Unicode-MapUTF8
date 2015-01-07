@@ -14,6 +14,7 @@ BuildRequires:	perl-devel
 BuildRequires:	perl(Unicode::Map)
 BuildRequires:	perl(Unicode::Map8)
 BuildRequires:	perl(Jcode)
+BuildRequires:	perl(Unicode::String)
 
 %description
 Provides an adapter layer between core routines for converting to and from UTF8
