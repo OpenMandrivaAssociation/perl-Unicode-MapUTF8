@@ -36,20 +36,20 @@ By design, it can be easily extended to encompass any new charset encoding
 conversion modules that arrive on the scene.
 
 %prep
-%setup -qn %{modname}-%{modver}
+%autosetup -p1 -n %{modname}-%{modver}
 
 %build
-%__perl Makefile.PL INSTALLDIRS=vendor
-%make
+perl Makefile.PL INSTALLDIRS=vendor
+%make_build
 
 %check
 make test
 
 %install
-%makeinstall_std
+%make_install
 
 %files 
 %doc README
 %{perl_vendorlib}/Unicode
-%{_mandir}/man3/*
+%doc %{_mandir}/man3/*
 
